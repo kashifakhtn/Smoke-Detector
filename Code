@@ -1,0 +1,36 @@
+// Define pin numbers
+const int SENSOR_PIN = A1;
+#define BUZZER_PIN 3
+#define RELAY_PIN 4
+
+// Define sprinkler timings
+#define SPRINKLER_START_DELAY 5000 // 5 seconds
+#define SPRINKLER_ON_TIME 3000 // 3 seconds
+
+unsigned long previousTime = millis();
+
+void setup() {
+Serial.begin(9600);
+pinMode(SENSOR_PIN, INPUT);
+pinMode(RELAY_PIN, OUTPUT);
+pinMode(BUZZER_PIN, OUTPUT);
+}
+
+void loop() {
+// Read the sensor value
+int sensorValue = analogRead(SENSOR_PIN);
+Serial.println(sensorValue);
+
+// If there is fire (sensor value is LOW)
+if (sensorValue > 80) {
+digitalWrite(BUZZER_PIN, HIGH); // Turn on the buzzer
+digitalWrite(RELAY_PIN, LOW); // Start the sprinkler (relay is low-level triggered)
+delay(1000);
+}
+else {
+digitalWrite(BUZZER_PIN, LOW); // Turn off the buzzer
+digitalWrite(RELAY_PIN, HIGH); // Turn off the sprinkler
+previousTime = millis();
+}
+delay(1000);
+}
