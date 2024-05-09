@@ -17,6 +17,7 @@ User Interface: The Arduino can be interfaced with a display unit or connected t
 
 Repository Contents:
 Arduino Code: Contains the source code for the Arduino microcontroller, responsible for smoke detection and control of the DC motor pump and relay.
+Documentation: https://drive.google.com/file/d/1yprtumO3EPsg_zjjUR4VPiWPAYtF9z0Z/view
 Circuit Image: Provides an image illustrating the connections between the components.
 ![smokedetector](https://github.com/kashifakhtn/Smoke-Detector/assets/125723457/152eff63-fb9e-4914-a30c-6c0a8728eea2)
 
